@@ -3,6 +3,10 @@
 	import '../app.css';
 </script>
 
+<svelte:head>
+	<title>Bank</title>
+</svelte:head>
+
 <div class="w-full h-full flex flex-col items-center justify-center bg-gray-100">
 	<div class="wrapper">
 		<slot />
