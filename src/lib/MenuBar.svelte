@@ -31,8 +31,6 @@
 			text: 'Profile'
 		}
 	];
-
-	$: console.log($page);
 </script>
 
 <div
