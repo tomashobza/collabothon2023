@@ -9,10 +9,15 @@
 
 	onMount(async () => {
 		try {
-			const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+			const stream = await navigator.mediaDevices.getUserMedia({
+				video: { facingMode: 'environment' }, // 'user' for front camera, 'environment' for rear camera
+				width: { ideal: 1280 },
+				height: { ideal: 720 }
+			});
 			video.srcObject = stream;
 			video.play();
 		} catch (err) {
+			alert('Error accessing camera:', err);
 			console.error('Error accessing camera:', err);
 		}
 	});
@@ -20,7 +25,7 @@
 	async function captureImage() {
 		canvas.getContext('2d').drawImage(video, 0, 0, 300, 150);
 		capturedImage = canvas.toDataURL();
-		video.srcObject.getTracks().forEach((track) => track.stop()); // Stop the video stream
+		// video.srcObject.getTracks().forEach((track) => track.stop()); // Stop the video stream
 
 		// Process the captured image with Tesseract
 		const {
