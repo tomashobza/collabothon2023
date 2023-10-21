@@ -1,4 +1,5 @@
 <script>
+	import { Toaster } from 'svelte-french-toast';
 	import MenuBar from '$lib/MenuBar.svelte';
 	import '../app.css';
 </script>
@@ -9,6 +10,7 @@
 
 <div class="w-full h-full flex flex-col items-center justify-center bg-gray-100">
 	<div class="wrapper">
+		<Toaster position="bottom-center" />
 		<slot />
 		<div class="absolute bottom-0 w-full">
 			<MenuBar />

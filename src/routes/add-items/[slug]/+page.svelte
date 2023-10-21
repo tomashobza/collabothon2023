@@ -15,6 +15,7 @@
 	import { onMount } from 'svelte';
 	import { fly, scale, slide } from 'svelte/transition';
 	import Tesseract from 'tesseract.js';
+	import toast from 'svelte-french-toast';
 
 	let video;
 	let canvas;
@@ -290,6 +291,12 @@
 					{/if}
 				{/if}
 			</div>
+		</div>
+		<div
+			class="btn bg-[#FFE900] mt-4 hover:bg-[hsl(55,100%,48%)] w-full"
+			on:click={() => toast.success('Save successful!')}
+		>
+			Save
 		</div>
 	</div>
 	<div class="h-[6rem] flex-shrink-0" />
