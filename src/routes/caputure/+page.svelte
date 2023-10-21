@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import Tesseract from 'tesseract.js';
 
@@ -29,6 +29,8 @@
 		}
 	}
 
+	let prgs: Tesseract.LoggerMessage;
+
 	async function captureImage() {
 		canvas.getContext('2d').drawImage(video, 0, 0, 300, 150);
 		capturedImage = canvas.toDataURL();
@@ -37,7 +39,10 @@
 		const {
 			data: { text }
 		} = await Tesseract.recognize(capturedImage, 'eng', {
-			logger: (progress) => console.log(progress)
+			logger: (progress) => {
+				console.log(progress);
+				prgs = progress;
+			}
 		});
 		extractedText = text;
 	}
@@ -58,14 +63,20 @@
 	}
 </script>
 
-<video bind:this={video} width="300" height="150" />
+<video bind:this={video} class="w-full" />
 <canvas bind:this={canvas} width="300" height="150" style="display: none;" />
-<button class="btn" on:click={captureImage}>Capture & Scan</button>
-<button class="btn" on:click={toggleFlashlight}>Toggle Flashlight</button>
-<button class="btn" on:click={switchCamera}>Switch Camera</button>
-<div>
+<div class="flex flex-col gap-2 p-6">
+	<button class="btn" on:click={captureImage}>Capture & Scan</button>
+	<button class="btn" on:click={toggleFlashlight}>Toggle Flashlight</button>
+	<button class="btn" on:click={switchCamera}>Switch Camera</button>
+</div>
+<div class="p-6">
 	<strong>Extracted Text:</strong>
 	<p>{extractedText}</p>
+</div>
+<div class="p-6">
+	<strong>{prgs?.workerId ?? ''}</strong>
+	<p>{prgs?.status ?? ''}</p>
 </div>
 
 <style>
