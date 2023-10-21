@@ -263,7 +263,7 @@
 					{:else}
 						<div class="grid grid-cols-[1.5fr,0.5fr,1fr] gap-2 pt-4 px-2">
 							<div class="font-bold">Name</div>
-							<div class="font-bold text-right">Qty</div>
+							<div class="font-bold text-right">Quantity</div>
 							<div class="font-bold text-right">Price</div>
 						</div>
 

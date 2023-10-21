@@ -21,3 +21,16 @@ export const hashToPastelColor = (str: string) => {
 
 	return `hsl(${hue}, ${saturation}%, ${luminance}%)`;
 };
+
+export const statusToPastelleColor = (status: number) => {
+	switch (status) {
+		case 0:
+			return '#b3ffb3cf';
+		case 1:
+			return '#ffffb3cf';
+		case 2:
+			return '#ffb3b3cf';
+		case 3:
+			return '#b3b3ffcf';
+	}
+};

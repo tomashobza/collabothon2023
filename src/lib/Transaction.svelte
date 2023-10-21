@@ -1,11 +1,13 @@
 <script lang="ts">
-	import type { Transaction } from '$ts/interfaces';
+	import { methodEnumToString, statusEnumToString, type Transaction } from '$ts/interfaces';
 	import { fly, slide } from 'svelte/transition';
 	import Label from './Label.svelte';
 	import { onMount } from 'svelte';
 	import dayjs from 'dayjs';
 	import PlusIcon from './PlusIcon.svelte';
 	import { goto } from '$app/navigation';
+	import EditIcon from './EditIcon.svelte';
+	import { statusToPastelleColor } from '$ts/utils';
 
 	let show = false;
 	onMount(() => (show = true));
@@ -50,13 +52,63 @@
 		{#if expand}
 			<div transition:slide|local class="mt-4 flex flex-col">
 				<hr class="mb-2" />
-				<button
-					class="btn text-xs"
-					on:click={() => goto(`/add-items/${transaction?.transactionId}`)}
-				>
-					<PlusIcon />
-					Add items
-				</button>
+				<div class="flex flex-row flex-wrap justify-between gap-3 text-sm mb-4 mt-2">
+					<div class="flex flex-row items-center gap-1">
+						<div class="font-semibold">Method:</div>
+						<div class="px-2 py-1 rounded-md bg-slate-200 text-xs font-mono truncate">
+							{methodEnumToString[transaction?.paymentMethod] || '-'}
+						</div>
+					</div>
+					<div class="flex flex-row items-center gap-1">
+						<div class="font-semibold">Status:</div>
+						<div
+							class="px-2 py-1 rounded-md bg-slate-200 text-xs font-mono truncate"
+							style="background-color: {statusToPastelleColor(transaction?.status)}"
+						>
+							{statusEnumToString[transaction?.status] || '-'}
+						</div>
+					</div>
+					<div class="flex flex-row items-center gap-1">
+						<div class="font-semibold">Currency:</div>
+						<div class="px-2 py-1 rounded-md bg-slate-200 text-xs font-mono truncate">
+							{transaction?.currency || '-'}
+						</div>
+					</div>
+					<div class="flex flex-row items-center gap-1">
+						<div class="font-semibold">Location:</div>
+						<div class="px-2 py-1 rounded-md bg-slate-200 text-xs font-mono truncate">
+							{transaction?.location || '-'}
+						</div>
+					</div>
+					<div class="flex flex-row items-center gap-1">
+						<div class="font-semibold">Counterparty:</div>
+						<div class="px-2 py-1 rounded-md bg-slate-200 text-xs font-mono truncate">
+							{transaction?.counterparty || '-'}
+						</div>
+					</div>
+					<div class="flex flex-row items-center gap-1 w-full">
+						<div class="font-semibold">Notes:</div>
+						<div class="px-2 py-1 rounded-md bg-slate-200 text-xs font-mono">
+							{transaction?.notes || '-'}
+						</div>
+					</div>
+				</div>
+				<div class="grid grid-cols-2 gap-2">
+					<button
+						class="btn text-xs"
+						on:click={() => goto(`/add-items/${transaction?.transactionId}`)}
+					>
+						<PlusIcon />
+						Scan receipt
+					</button>
+					<button
+						class="btn text-xs"
+						on:click={() => goto(`/edit-transaction/${transaction?.transactionId}`)}
+					>
+						<EditIcon />
+						Edit
+					</button>
+				</div>
 			</div>
 		{/if}
 	</div>

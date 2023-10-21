@@ -62,3 +62,16 @@ interface Attachment {
 	uploadedDate: Date;
 	// ... any other fields relevant to an attachment
 }
+
+export const methodEnumToString = {
+	[PaymentMethod.CREDIT_CARD]: 'Credit card',
+	[PaymentMethod.DEBIT_CARD]: 'Debit card',
+	[PaymentMethod.BANK_TRANSFER]: 'Bank transfer'
+};
+
+export const statusEnumToString = {
+	[TransactionStatus.COMPLETED]: 'Completed',
+	[TransactionStatus.PENDING]: 'Pending',
+	[TransactionStatus.FAILED]: 'Failed',
+	[TransactionStatus.REVERSED]: 'Reversed'
+};
