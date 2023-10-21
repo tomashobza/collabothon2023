@@ -13,7 +13,15 @@ export interface Transaction {
 	location?: string;
 	currency: Currency; // Assuming you have an enum or another type for 'Currency'
 	isTaxRelevant: boolean;
+	items?: Item[];
 }
+
+export type Item = {
+	name: string;
+	quantity: number;
+	price: number;
+	rate: 'standard' | 'reduced' | 'secondReduced' | 'none';
+};
 
 type Label =
 	| 'REVENUES_SALES'

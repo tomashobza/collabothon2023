@@ -141,3 +141,10 @@ export const mockTransactions: Transaction[] = [
 		isTaxRelevant: true
 	}
 ];
+
+export const czechVATPercentages = {
+	standard: 0.21,
+	reduced: 0.15,
+	secondReduced: 0.1,
+	none: 0.0
+};

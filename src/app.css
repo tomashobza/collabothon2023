@@ -16,6 +16,6 @@ div.svelte {
     width: 100%;
     margin: 0;
     padding: 0;
-    padding-bottom: env(safe-area-inset-bottom, 10px);
+    padding-bottom: calc(env(safe-area-inset-bottom, 0.5vh) /10);
     overflow: hidden;
 }
