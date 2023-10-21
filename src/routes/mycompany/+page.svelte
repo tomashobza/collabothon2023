@@ -4,7 +4,7 @@
 </script>
 
 <div class="w-full h-full flex flex-col items-stretch gap-3 p-4">
-	{#each mockTransactions ?? [] as transaction}
-		<Transaction {transaction} />
+	{#each mockTransactions ?? [] as transaction, i}
+		<Transaction {transaction} {i} />
 	{/each}
 </div>
