@@ -7,7 +7,10 @@
 	<title>Bank</title>
 </svelte:head>
 
-<div class="w-full h-full flex flex-col items-center justify-center bg-gray-100">
+<div
+	class="w-full h-full flex flex-col items-center justify-center bg-gray-100"
+	style="padding-bottom: env(safe-area-inset-bottom);"
+>
 	<div class="wrapper">
 		<slot />
 		<div class="absolute bottom-0 w-full">
