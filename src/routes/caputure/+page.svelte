@@ -63,20 +63,23 @@
 	}
 </script>
 
-<video bind:this={video} class="w-full" />
-<canvas bind:this={canvas} width="300" height="150" style="display: none;" />
-<div class="flex flex-col gap-2 p-6">
-	<button class="btn" on:click={captureImage}>Capture & Scan</button>
-	<button class="btn" on:click={toggleFlashlight}>Toggle Flashlight</button>
-	<button class="btn" on:click={switchCamera}>Switch Camera</button>
-</div>
-<div class="p-6">
-	<strong>Extracted Text:</strong>
-	<p>{extractedText}</p>
-</div>
-<div class="p-6">
-	<strong>{prgs?.workerId ?? ''}</strong>
-	<p>{prgs?.status ?? ''}</p>
+<div class="w-full h-full overflow-auto">
+	<video bind:this={video} class="w-full" autoplay muted playsinline />
+	<canvas bind:this={canvas} width="300" height="150" style="display: none;" />
+	<div class="flex flex-col gap-2 p-6">
+		<button class="btn" on:click={captureImage}>Capture & Scan</button>
+		<button class="btn" on:click={toggleFlashlight}>Toggle Flashlight</button>
+		<button class="btn" on:click={switchCamera}>Switch Camera</button>
+	</div>
+	<div class="p-6">
+		<strong>Extracted Text:</strong>
+		<p>{extractedText}</p>
+	</div>
+	<div class="p-6">
+		<strong>{prgs?.workerId ?? ''}</strong>
+		<p>{prgs?.status ?? ''}</p>
+	</div>
+	<div class="h-[4rem] flex-shrink-0" />
 </div>
 
 <style>
