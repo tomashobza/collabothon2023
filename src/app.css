@@ -17,4 +17,5 @@ div.svelte {
     margin: 0;
     padding: 0;
     padding-bottom: env(safe-area-inset-bottom, 0.5vh);
+    oveflow: hidden;
 }
