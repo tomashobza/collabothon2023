@@ -34,7 +34,7 @@
 </script>
 
 <div
-	class="w-full flex flex-row items-center justify-between border-t border-[#02404a10] text-xs px-6 py-4 text-[#02404A] overflow-auto"
+	class="w-full flex flex-row items-center justify-between border-t border-[#02404a10] text-xs px-6 py-4 text-[#02404A] overflow-auto backdrop-blur-sm bg-white bg-opacity-60"
 >
 	{#each menu as { icon, text, link }}
 		<button

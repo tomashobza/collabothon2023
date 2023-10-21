@@ -16,4 +16,5 @@ div.svelte {
     width: 100%;
     margin: 0;
     padding: 0;
+    padding-bottom: env(safe-area-inset-bottom, 0.5vh);
 }

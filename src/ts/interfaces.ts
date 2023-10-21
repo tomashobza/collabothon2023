@@ -46,12 +46,7 @@ export enum TransactionStatus {
 	REVERSED
 }
 
-export enum Currency {
-	CZK, // Czech Koruna
-	USD,
-	EUR
-	// ... other currencies
-}
+export type Currency = 'USD' | 'EUR' | 'CZK' | 'GBP' | 'CHF' | 'JPY' | 'CAD';
 
 interface Attachment {
 	filename: string;

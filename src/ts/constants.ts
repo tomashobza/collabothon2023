@@ -1,4 +1,4 @@
-import { PaymentMethod, TransactionStatus, type Transaction, Currency } from './interfaces';
+import { PaymentMethod, TransactionStatus, type Transaction } from './interfaces';
 
 const LABELS: string[] = [
 	'Revenues/Sales',
@@ -34,7 +34,7 @@ export const mockTransactions: Transaction[] = [
 		notes: 'MacBook for graphic design work',
 		counterparty: 'Apple Inc.',
 		location: 'San Francisco, CA',
-		currency: Currency.USD,
+		currency: 'USD',
 		isTaxRelevant: true
 	},
 	{
@@ -49,7 +49,7 @@ export const mockTransactions: Transaction[] = [
 		notes: 'Monthly office rent',
 		counterparty: 'XYZ Properties',
 		location: 'Prague',
-		currency: Currency.CZK,
+		currency: 'CZK',
 		isTaxRelevant: true
 	},
 	{
@@ -63,7 +63,81 @@ export const mockTransactions: Transaction[] = [
 		status: TransactionStatus.COMPLETED,
 		notes: 'Payment for design project',
 		counterparty: 'ABC Enterprises',
-		currency: Currency.EUR,
+		currency: 'EUR',
+		isTaxRelevant: true
+	},
+	{
+		date: new Date('2023-10-21'),
+		transactionId: 'TX12348',
+		description: 'Adobe Creative Cloud Subscription',
+		labels: ['PROFESSIONAL_SERVICES'],
+		amount: -50,
+		accountBalanceAfterTransaction: 3950,
+		paymentMethod: PaymentMethod.CREDIT_CARD,
+		status: TransactionStatus.COMPLETED,
+		attachments: [
+			{
+				filename: 'invoice_adobe.pdf',
+				path: '/path/to/invoice_adobe.pdf',
+				uploadedDate: new Date('2023-10-21')
+			}
+		],
+		notes: 'Monthly subscription for graphic design software',
+		counterparty: 'Adobe Inc.',
+		location: 'Online',
+		currency: 'USD',
+		isTaxRelevant: true
+	},
+	{
+		date: new Date('2023-10-22'),
+		transactionId: 'TX12349',
+		description: 'Coffee Shop Meeting',
+		labels: ['CONSUMABLES_SUPPLIES', 'TRAVEL_ACCOMMODATION'],
+		amount: -20,
+		accountBalanceAfterTransaction: 3930,
+		paymentMethod: PaymentMethod.DEBIT_CARD,
+		status: TransactionStatus.COMPLETED,
+		notes: 'Coffee and snacks for client meeting',
+		counterparty: 'Coffee Bliss',
+		location: 'Prague',
+		currency: 'CZK',
+		isTaxRelevant: true
+	},
+	{
+		date: new Date('2023-10-25'),
+		transactionId: 'TX12350',
+		description: 'Tax Consultant Fee',
+		labels: ['PROFESSIONAL_SERVICES'],
+		amount: -300,
+		accountBalanceAfterTransaction: 3630,
+		paymentMethod: PaymentMethod.BANK_TRANSFER,
+		status: TransactionStatus.COMPLETED,
+		attachments: [
+			{
+				filename: 'receipt_consultant.pdf',
+				path: '/path/to/receipt_consultant.pdf',
+				uploadedDate: new Date('2023-10-25')
+			}
+		],
+		notes: 'Annual fee for tax consultation services',
+		counterparty: 'Financial Wizards Ltd.',
+		location: 'Brno',
+		currency: 'CZK',
+		isTaxRelevant: true
+	},
+	{
+		date: new Date('2023-10-26'),
+		transactionId: 'TX12351',
+		description: 'Marketing Workshop',
+		labels: ['EDUCATION_TRAINING', 'MARKETING_PROMOTION'],
+		amount: -150,
+		accountBalanceAfterTransaction: 3480,
+		paymentMethod: PaymentMethod.CREDIT_CARD,
+		status: TransactionStatus.PENDING,
+		notes: 'Participation fee for marketing workshop',
+		counterparty: 'Marketing Masters',
+		location: 'Berlin',
+		currency: 'EUR',
 		isTaxRelevant: true
 	}
 ];

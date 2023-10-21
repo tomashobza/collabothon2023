@@ -19,11 +19,11 @@
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div
 		on:click={() => (expand = !expand)}
-		class="p-4 rounded-xl bg-gray-100 flex flex-col overflow-auto cursor-pointer"
+		class="p-4 rounded-xl flex-shrink-0 bg-gray-100 flex flex-col overflow-auto cursor-pointer"
 		transition:fly={{ x: 50, delay: i * 100 }}
 	>
 		<div class="flex flex-row items-start gap-1 mb-2">
-			<div class="flex-grow flex flex-row flex-wrap items-center gap-1">
+			<div class="flex-grow flex flex-row flex-wrap items-center gap-1 transition-all">
 				{#each transaction?.labels ?? [] as label}
 					<Label>{label?.toLowerCase()?.replace('_', ' ')}</Label>
 				{/each}
@@ -32,12 +32,14 @@
 				{dayjs(transaction?.date).format('DD.MM.YYYY')}
 			</div>
 		</div>
-		<div class="flex flex-row items-center flex-wrap">
-			<div class="flex-grow">{transaction?.description}</div>
-			<div class="font-semibold text-lg">
+		<div class="flex flex-row items-center gap-2 transition-all" class:flex-wrap={expand}>
+			<div class="flex-grow truncate transition-all whitespace-pre-wrap">
+				{transaction?.description}
+			</div>
+			<div class="font-semibold text-lg flex-shirnk-0 transition-all">
 				{(transaction?.amount).toLocaleString('cs-CZ', {
 					style: 'currency',
-					currency: 'EUR'
+					currency: transaction?.currency ?? 'CZK'
 				})}
 			</div>
 		</div>
