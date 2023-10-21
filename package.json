@@ -30,6 +30,7 @@
 	"dependencies": {
 		"dayjs": "^1.11.10",
 		"firebase": "^10.5.0",
-		"openai": "^4.12.4"
+		"openai": "^4.12.4",
+		"tesseract.js": "^5.0.2"
 	}
 }
