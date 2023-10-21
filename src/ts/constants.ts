@@ -142,6 +142,8 @@ export const mockTransactions: Transaction[] = [
 	}
 ];
 
+export const czechVATrates = ['standard', 'reduced', 'secondReduced', 'none'];
+
 export const czechVATPercentages = {
 	standard: 0.21,
 	reduced: 0.15,

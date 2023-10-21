@@ -161,7 +161,7 @@
 			items.push({
 				name: row[0],
 				quantity: parseInt(row[1]),
-				price: parseInt(row[2]?.replace('$', '')),
+				price: parseFloat(row[2]?.replace('$', '')),
 				rate: 'standard'
 			});
 		});
@@ -260,14 +260,14 @@
 							Save
 						</button>
 					{:else}
-						<div class="grid grid-cols-3 gap-2 pt-4 px-2">
+						<div class="grid grid-cols-[1.5fr,0.5fr,1fr] gap-2 pt-4 px-2">
 							<div class="font-bold">Name</div>
-							<div class="font-bold text-right">Quantity</div>
+							<div class="font-bold text-right">Qty</div>
 							<div class="font-bold text-right">Price</div>
 						</div>
 
 						{#each parseCSV(chatgptResponse)?.items || [] as row, i}
-							<div class="grid grid-cols-3 gap-2 pt-4 px-2 border-t">
+							<div class="grid grid-cols-[1.5fr,0.5fr,1fr] gap-2 pt-4 px-2 border-t items-center">
 								<EditableItem {row} />
 							</div>
 						{/each}
