@@ -45,6 +45,11 @@
 								return context.parsed.y;
 							}
 						}
+					},
+					title: {
+						display: true,
+						text: 'Income vs Expense per Day',
+						align: 'start'
 					}
 				},
 				scales: {
@@ -69,14 +74,16 @@
 	let ctx;
 </script>
 
-<div class="p-6 rounded-xl bg-gray-100 flex flex-col">
+<div class="p-6 pb-4 rounded-xl bg-gray-100 flex flex-col">
 	<button class="text-xl mb-4 flex flex-row items-center">
 		<div class="flex-grow text-left">Dashboard</div>
 		<div>
 			<ChevronRightIcon />
 		</div>
 	</button>
+
 	<canvas bind:this={ctx} class="w-full" />
+	<h2 class="text-xs text-right text-slate-500 mt-4">Income vs Expense per Day</h2>
 </div>
 
 <style>
