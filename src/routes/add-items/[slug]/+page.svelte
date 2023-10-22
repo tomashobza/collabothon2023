@@ -242,7 +242,7 @@
 			Parse Receipt
 		</button> -->
 	</div>
-	<div class="px-6 mb-2 w-full">
+	<!-- <div class="px-6 mb-2 w-full">
 		<button
 			class="w-full flex flex-row items-center"
 			on:click={() => (showParsedText = !showParsedText)}
@@ -266,7 +266,7 @@
 	<div class="w-full px-6 font-mono text-sm">
 		<strong>{prgs?.workerId ?? ''}</strong>
 		<p>{prgs?.status ?? ''}</p>
-	</div>
+	</div> -->
 	<div class="px-6 mb-2 w-full" in:slide|local={{ duration: 500 }}>
 		<strong>AI parsed reciept:</strong>
 		<div class="rounded-lg text-sm bg-gray-100 p-2 font-mono mt-2 w-full min-h-[2rem]">

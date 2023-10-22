@@ -2,10 +2,12 @@
 	import { onMount } from 'svelte';
 	import { Chart, BarController, CategoryScale, LinearScale, BarElement } from 'chart.js';
 	import ChevronRightIcon from './ChevronRightIcon.svelte';
+	import { goto } from '$app/navigation';
 
 	// Register the required controllers and elements
 	Chart.register(BarController, CategoryScale, LinearScale, BarElement);
 
+	export let showHeader = true;
 	let chart;
 
 	onMount(() => {
@@ -75,12 +77,17 @@
 </script>
 
 <div class="p-6 pb-4 rounded-xl bg-gray-100 flex flex-col">
-	<button class="text-xl mb-4 flex flex-row items-center">
-		<div class="flex-grow text-left">Dashboard</div>
-		<div>
-			<ChevronRightIcon />
-		</div>
-	</button>
+	{#if showHeader}
+		<button
+			class="text-xl mb-4 flex flex-row items-center"
+			on:click={() => goto('/mycompany/dashboard')}
+		>
+			<div class="flex-grow text-left">Dashboard</div>
+			<div>
+				<ChevronRightIcon />
+			</div>
+		</button>
+	{/if}
 
 	<canvas bind:this={ctx} class="w-full" />
 	<h2 class="text-xs text-right text-slate-500 mt-4">Income vs Expense per Day</h2>
