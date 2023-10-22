@@ -4,7 +4,6 @@
 	import { hashToPastelColor } from '$ts/utils';
 
 	let value: number;
-	$: console.log(value);
 
 	export let row: Item;
 </script>

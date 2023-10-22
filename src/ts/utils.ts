@@ -34,3 +34,20 @@ export const statusToPastelleColor = (status: number) => {
 			return '#b3b3ffcf';
 	}
 };
+
+export const parseCSV = (csvString: string) => {
+	if (!csvString) return;
+	const rows = csvString?.split('\n');
+	const data = rows?.map((row) => row?.split(','));
+	let items: Item[] = [];
+	data.forEach((row) => {
+		items.push({
+			name: row[0],
+			quantity: parseInt(row[1]),
+			price: parseFloat(row[2]?.replace('$', '')),
+			rate: 'standard'
+		});
+	});
+	// console.log(data, items);
+	return { data, items };
+};
