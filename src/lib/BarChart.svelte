@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { Chart, BarController, CategoryScale, LinearScale, BarElement } from 'chart.js';
+	import ChevronRightIcon from './ChevronRightIcon.svelte';
 
 	// Register the required controllers and elements
 	Chart.register(BarController, CategoryScale, LinearScale, BarElement);
@@ -35,11 +36,27 @@
 				plugins: {
 					legend: {
 						display: false
+					},
+					tooltip: {
+						mode: 'index',
+						callbacks: {
+							label: function (context) {
+								// Show only the y-value without the label
+								return context.parsed.y;
+							}
+						}
 					}
 				},
 				scales: {
 					y: {
-						beginAtZero: true
+						beginAtZero: true,
+						ticks: {
+							display: false // Hide vertical axis numbers
+						},
+						grid: {
+							display: true,
+							drawBorder: false
+						}
 					},
 					x: {
 						barPercentage: 0.5
@@ -52,7 +69,13 @@
 	let ctx;
 </script>
 
-<div class="p-6 rounded-xl bg-gray-100">
+<div class="p-6 rounded-xl bg-gray-100 flex flex-col">
+	<button class="text-xl mb-4 flex flex-row items-center">
+		<div class="flex-grow text-left">Dashboard</div>
+		<div>
+			<ChevronRightIcon />
+		</div>
+	</button>
 	<canvas bind:this={ctx} class="w-full" />
 </div>
 
