@@ -5,7 +5,7 @@
 	import DownloadIcon from '$lib/DownloadIcon.svelte';
 	import PieChart from '$lib/PieChart.svelte';
 	import QuestionmarkIcon from '$lib/QuestionmarkIcon.svelte';
-	import SaveIcon from '$lib/SaveIcon.svelte';
+	// import SaveIcon from '$lib/SaveIcon.svelte';
 	import { downloadPDF } from '$ts/utils';
 	import { fly, scale } from 'svelte/transition';
 </script>
