@@ -2,8 +2,10 @@
 	import { goto } from '$app/navigation';
 	import ArrowBack from '$lib/ArrowBack.svelte';
 	import BarChart from '$lib/BarChart.svelte';
+	import DownloadIcon from '$lib/DownloadIcon.svelte';
 	import PieChart from '$lib/PieChart.svelte';
 	import QuestionmarkIcon from '$lib/QuestionmarkIcon.svelte';
+	import SaveIcon from '$lib/SaveIcon.svelte';
 	import { fly, scale } from 'svelte/transition';
 </script>
 
@@ -146,6 +148,14 @@
 				<div class="text-xs">Need help? Give us a call!</div>
 			</div>
 		</div>
+		<button
+			in:scale={{ duration: 500 }}
+			class="bg-gray-100 flex-grow rounded-xl p-4 flex flex-row items-center gap-2 justify-center col-span-2"
+		>
+			<DownloadIcon />
+			Export Tax Report
+		</button>
 	</div>
+
 	<div class="h-[6rem] flex-shrink-0 text-xs" />
 </div>
