@@ -6,6 +6,7 @@
 	import PieChart from '$lib/PieChart.svelte';
 	import QuestionmarkIcon from '$lib/QuestionmarkIcon.svelte';
 	import SaveIcon from '$lib/SaveIcon.svelte';
+	import { downloadPDF } from '$ts/utils';
 	import { fly, scale } from 'svelte/transition';
 </script>
 
@@ -151,6 +152,7 @@
 		<button
 			in:scale={{ duration: 500 }}
 			class="bg-gray-100 flex-grow rounded-xl p-4 flex flex-row items-center gap-2 justify-center col-span-2"
+			on:click={() => downloadPDF('Podklady_k_dani_z_přidané_hodnoty.pdf')}
 		>
 			<DownloadIcon />
 			Export Tax Report

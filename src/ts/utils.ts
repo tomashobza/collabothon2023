@@ -1,3 +1,6 @@
+import { page } from '$app/stores';
+import { get } from 'svelte/store';
+
 export const stringHash = (str: string) => {
 	let hash = 0;
 	for (let i = 0; i < str.length; i++) {
@@ -50,4 +53,19 @@ export const parseCSV = (csvString: string) => {
 	});
 	// console.log(data, items);
 	return { data, items };
+};
+
+export const downloadPDF = async (filename: string) => {
+	const response = await fetch(get(page)?.url?.origin + '/' + filename);
+	if (!response.ok) {
+		throw new Error(`Failed to fetch PDF: ${response.statusText}`);
+	}
+
+	const blob = await response.blob();
+	const link = document.createElement('a');
+	link.href = URL.createObjectURL(blob);
+	link.download = 'Podklady_k_dani_z_přidané_hodnoty.pdf'; // Name of the downloaded file
+	document.body.appendChild(link);
+	link.click();
+	document.body.removeChild(link);
 };
