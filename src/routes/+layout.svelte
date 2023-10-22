@@ -23,7 +23,7 @@
 		@apply h-full;
 		@apply w-full md:w-auto;
 		@apply md:m-6;
-		@apply md:aspect-[1/2];
+		@apply md:aspect-[9/16];
 		@apply md:shadow-md;
 		@apply md:rounded-xl;
 		@apply bg-white;

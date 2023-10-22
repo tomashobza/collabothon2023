@@ -1,6 +1,6 @@
 import { PaymentMethod, TransactionStatus, type Transaction } from './interfaces';
 
-const LABELS: string[] = [
+export const LABELS: string[] = [
 	'Revenues/Sales',
 	'Fixed Assets',
 	'Consumables and Supplies',
@@ -14,7 +14,7 @@ const LABELS: string[] = [
 	'Other Expenses'
 ];
 
-export const mockTransactions: Transaction[] = [
+export let mockTransactions: Transaction[] = [
 	{
 		date: new Date('2023-10-01'),
 		transactionId: 'TX12345',

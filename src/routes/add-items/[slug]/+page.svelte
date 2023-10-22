@@ -205,12 +205,12 @@
 			on:click={() => (toggleZoomin = !toggleZoomin)}
 			in:scale|local={{ duration: 500 }}
 		>
-			<video bind:this={video} class="w-full border" autoplay muted playsinline />
+			<video bind:this={video} class="w-full rounded-l-xl border" autoplay muted playsinline />
 			<canvas
 				bind:this={canvas}
 				width="300"
 				height="150"
-				class="border w-full"
+				class="border w-full rounded-r-xl"
 				style="display: block;"
 			/>
 		</div>

@@ -1,3 +1,7 @@
+<script lang="ts">
+	export let small = false;
+</script>
+
 <svg
 	xmlns="http://www.w3.org/2000/svg"
 	fill="none"
@@ -5,6 +9,7 @@
 	stroke-width="1.5"
 	stroke="currentColor"
 	class="w-5"
+	class:w-[0.9rem]={small}
 >
 	<path
 		stroke-linecap="round"
